@@ -2,8 +2,9 @@ runtime: node@24
 preset: nextjs
 type: app
 scaffold_cmd: cp -rn /app/. /workspace/
+dependency_cmd: npm ci --include=dev
 build_cmd: |
-  npm ci
+  set -e
   npm run build
   mkdir -p .next/standalone/.next
   cp -R public .next/standalone/public
